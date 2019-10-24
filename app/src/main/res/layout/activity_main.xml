@@ -7,17 +7,42 @@
     android:id="@+id/motionLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layoutDescription="@xml/red_star_movement_01"
-    tools:showPaths="true"
-    android:background="@drawable/background">
-
+    app:layoutDescription="@xml/white_star_movement_01"
+    >
 
     <ImageView
-        android:id="@+id/red_star"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:srcCompat="@drawable/background"
+        android:scaleType="centerCrop"
+        />
+
+    <ImageView
+        android:id="@+id/left_star"
         android:layout_width="64dp"
         android:layout_height="64dp"
         app:srcCompat="@drawable/ic_star_outline"
         />
+
+    <ImageView
+        android:id="@+id/right_star"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        app:srcCompat="@drawable/ic_star_outline"
+        />
+
+    <ImageView
+        android:id="@+id/middle_star"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        app:srcCompat="@drawable/ic_star_outline"
+        />
+
 
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
