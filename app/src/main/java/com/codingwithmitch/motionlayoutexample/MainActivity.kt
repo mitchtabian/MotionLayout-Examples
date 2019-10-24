@@ -2,29 +2,24 @@ package com.codingwithmitch.motionlayoutexample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.constraintlayout.motion.widget.MotionLayout
-import com.google.android.material.appbar.AppBarLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        coordinateMotion()
-    }
-
-    private fun coordinateMotion() {
-        val appBarLayout: AppBarLayout = findViewById(R.id.appbar_layout)
-        val motionLayout: MotionLayout = findViewById(R.id.motion_layout)
-
-        val listener = AppBarLayout.OnOffsetChangedListener { unused, verticalOffset ->
-            val seekPosition = -verticalOffset / appBarLayout.totalScrollRange.toFloat()
-            motionLayout.progress = seekPosition
+        findViewById<RecyclerView>(R.id.recyclerview_front).apply {
+            adapter = FrontPhotosAdapter()
+            isNestedScrollingEnabled = false
+            layoutManager = LinearLayoutManager(this@MainActivity)
         }
-
-        appBarLayout.addOnOffsetChangedListener(listener)
     }
+
+
 }
 
 
