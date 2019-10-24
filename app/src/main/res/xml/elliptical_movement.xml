@@ -6,9 +6,10 @@
         app:constraintSetStart="@+id/start"
         app:constraintSetEnd="@+id/end"
         app:duration="3000">
-        <OnClick
-            app:targetId="@id/moon"
-            app:clickAction="toggle"
+        <OnSwipe
+            app:touchAnchorId="@id/moon"
+            app:touchAnchorSide="bottom"
+            app:dragDirection="dragRight"
             />
 
         <KeyFrameSet>
