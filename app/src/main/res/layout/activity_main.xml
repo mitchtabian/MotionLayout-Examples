@@ -15,7 +15,8 @@
         android:id="@+id/red_star"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:src="@drawable/ic_star_outline"
+        app:srcCompat="@drawable/ic_star_outline"
+        android:tint="#fc0303"
         />
 
 
