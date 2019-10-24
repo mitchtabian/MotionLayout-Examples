@@ -4,13 +4,7 @@
 
     <Transition
         app:constraintSetStart="@+id/start"
-        app:constraintSetEnd="@+id/end"
-        app:duration="3000">
-        <OnSwipe
-            app:touchAnchorId="@id/moon"
-            app:touchAnchorSide="bottom"
-            app:dragDirection="dragRight"
-            />
+        app:constraintSetEnd="@+id/end">
 
         <KeyFrameSet>
             <KeyPosition
@@ -34,45 +28,27 @@
                 app:percentY="0.6"
                 />
 
-            <!-- Modify attributes during motion -->
+            <!-- Modify attributes during motion of Moon -->
             <KeyAttribute
                 app:framePosition="50"
                 app:motionTarget="@id/moon"
-                android:scaleY="2.0"
-                android:scaleX="2.0"
-                android:rotation="-360"
                 />
             <KeyAttribute
                 app:framePosition="100"
                 app:motionTarget="@id/moon"
-                android:rotation="-720"
                 />
 
+            <!-- Modify attributes during motion of credits -->
             <KeyAttribute
-                app:framePosition="0"
-                app:motionTarget="@id/moon">
-                <CustomAttribute
-                    app:attributeName="colorFilter"
-                    app:customColorValue="#FFFFFF"
-                    />
-            </KeyAttribute>
-            <KeyAttribute
-                app:framePosition="50"
-                app:motionTarget="@id/moon">
-                <CustomAttribute
-                    app:attributeName="colorFilter"
-                    app:customColorValue="#FFB612"
-                    />
-            </KeyAttribute>
+                app:framePosition="85"
+                app:motionTarget="@id/credits"
+                android:alpha="0.0"
+                />
+            <!-- Modify attributes during motion of background -->
             <KeyAttribute
                 app:framePosition="100"
-                app:motionTarget="@id/moon">
-                <CustomAttribute
-                    app:attributeName="colorFilter"
-                    app:customColorValue="#FFFFFF"
-                    />
-            </KeyAttribute>
-
+                app:motionTarget="@id/background"
+                android:translationY="500dp" />
         </KeyFrameSet>
     </Transition>
 
@@ -85,6 +61,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             />
+
+        <Constraint
+            android:id="@id/credits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.0"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/moon"
+            app:layout_constraintTop_toTopOf="@id/moon"
+            />
     </ConstraintSet>
 
     <!-- END ANIMATIONS -->
@@ -93,8 +80,20 @@
             android:id="@id/moon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <Constraint
+            android:id="@id/credits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="1.0"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/moon"
+            app:layout_constraintTop_toTopOf="@id/moon"
             />
     </ConstraintSet>
 </MotionScene>
