@@ -8,14 +8,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/red_star_movement_01"
-    tools:showPaths="true">
+    tools:showPaths="true"
+    android:background="@drawable/background">
 
 
     <ImageView
         android:id="@+id/red_star"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:src="@drawable/ic_star_outline"
+        app:srcCompat="@drawable/ic_star_outline"
         />
 
 
